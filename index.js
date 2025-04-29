@@ -28,10 +28,19 @@ app.post("/contact-us", async(req,res) => {
         res.status(500).json({message : error.message});
     }
 });
-app.get('/contact-us', (req, res) => {
-    res.status(200).json({ message : req.body})
-})
 
+app.get('/api/contact-us/:id', async (req, res) => {
+    try{
+        const form = await formsIdModel.findById(req.params.id);
+
+        if(!form){
+            res.status(400).json({message: "ERROR 404"});
+        }
+        res.status(200).json({form});
+    }catch(error){
+        res.status(500).json({message:error.message});
+    }
+});
 
 mongoose.connect("mongodb+srv://omolewaotimothy17:3mvYL2v1XXXJqxp9@apitrial.l76yulz.mongodb.net/apitrial?retryWrites=true&w=majority&appName=apitrial")
 .then(() => {

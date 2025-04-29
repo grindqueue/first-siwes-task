@@ -5,11 +5,11 @@ const Schema = mongoose.Schema;
 const formsIdSchema = new Schema({
   Username : {
     type:String,
-    required: [true,'Please enter your username']
+    required: [true,'Please enter your username'],
   },
   Email:{
     type:String,
-    required:[true,"Please enter your email address"]
+    required:[true,"Please enter your email address"],
   },
   Phone_number:{
     type:String,
