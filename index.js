@@ -1,11 +1,12 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const { formsIdModel }= require('./models/formsId.js');
+const cors = require("cors");
 
 const app = express();
 
 app.use(express.json());
-
+app.use(cors());
 
 app.get("/", (req, res) => {
     res.send("<h1>You are connected to our server<h1/>");
