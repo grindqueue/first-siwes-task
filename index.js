@@ -28,6 +28,7 @@ app.post("/contact-us", async(req,res) => {
     try {
         const formsidmodel = await formsIdModel.create(req.body);
         res.status(200).json({formsidmodel});
+        res.send("<h1>FORM SUCCESSFULLY CREATED<h1/>");
     }catch(error){
         res.status(500).json({message : error.message});
     }
