@@ -10,6 +10,7 @@ const formsIdSchema = new Schema({
   Email:{
     type:String,
     required:[true,"Please enter your email address"],
+    unique: [true, "Email already used to register"]
   },
   Phone_number:{
     type:String,
